@@ -1,7 +1,7 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { X } from 'lucide-react';
+import { X, ExternalLink } from 'lucide-react';
 import { Element } from '../data/elements';
 import { AtomicModel3D } from './AtomicModel3D';
 
@@ -11,6 +11,17 @@ interface ElementModalProps {
 }
 
 export const ElementModal: React.FC<ElementModalProps> = ({ element, onClose }) => {
+  // Prevent background scrolling when modal is open
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, []);
+
+  // Generate Wikipedia URL
+  const wikipediaUrl = `https://en.wikipedia.org/wiki/${element.name}`;
+
   return (
     <motion.div
       className="fixed inset-0 z-50 flex items-center justify-center p-4"
@@ -29,7 +40,7 @@ export const ElementModal: React.FC<ElementModalProps> = ({ element, onClose }) 
       
       {/* Modal */}
       <motion.div
-        className="relative w-full max-w-4xl bg-slate-900/95 backdrop-blur-lg rounded-2xl border border-white/20 overflow-hidden"
+        className="relative w-full max-w-4xl bg-slate-900/95 backdrop-blur-lg rounded-2xl border border-white/20 overflow-hidden max-h-[90vh] overflow-y-auto"
         initial={{ opacity: 0, scale: 0.8, y: 50 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.8, y: 50 }}
@@ -55,12 +66,28 @@ export const ElementModal: React.FC<ElementModalProps> = ({ element, onClose }) 
                 <p className="text-gray-300">Atomic Number {element.atomicNumber}</p>
               </div>
             </div>
-            <button
-              onClick={onClose}
-              className="p-2 rounded-full hover:bg-white/10 transition-colors text-white"
-            >
-              <X size={24} />
-            </button>
+            <div className="flex items-center gap-2">
+              {/* Wikipedia Link */}
+              <motion.a
+                href={wikipediaUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-white flex items-center gap-2"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <ExternalLink size={18} />
+                <span className="text-sm">Wikipedia</span>
+              </motion.a>
+              
+              {/* Close Button */}
+              <button
+                onClick={onClose}
+                className="p-2 rounded-full hover:bg-white/10 transition-colors text-white"
+              >
+                <X size={24} />
+              </button>
+            </div>
           </div>
         </div>
 
@@ -112,7 +139,7 @@ export const ElementModal: React.FC<ElementModalProps> = ({ element, onClose }) 
 
               <div className="bg-slate-800/50 rounded-lg p-4 border border-white/10">
                 <div className="text-gray-400 text-sm mb-2">Electron Configuration</div>
-                <div className="text-white font-mono">
+                <div className="text-white font-mono text-sm">
                   {element.electronShells.map((shell, index) => (
                     <span key={index}>
                       {index + 1}s<sup>{shell}</sup>
