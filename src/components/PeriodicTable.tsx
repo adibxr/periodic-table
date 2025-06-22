@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ElementCard } from './ElementCard';
 import { ElementModal } from './ElementModal';
 import { SearchAndFilters } from './SearchAndFilters';
+import { Header } from './Header';
 import { elements, Element } from '../data/elements';
 
 export const PeriodicTable = () => {
@@ -47,18 +48,7 @@ export const PeriodicTable = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 p-4">
       <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-8"
-        >
-          <h1 className="text-5xl font-bold text-white mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-            Interactive Periodic Table
-          </h1>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-            Explore the elements with interactive 3D models and detailed information
-          </p>
-        </motion.div>
+        <Header />
 
         <SearchAndFilters
           searchTerm={searchTerm}
@@ -91,6 +81,17 @@ export const PeriodicTable = () => {
               </div>
             ))
           )}
+        </motion.div>
+
+        {/* Element count display */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="text-center mb-4"
+        >
+          <p className="text-gray-300">
+            Showing {filteredElements.length} of {elements.length} elements
+          </p>
         </motion.div>
 
         <AnimatePresence>

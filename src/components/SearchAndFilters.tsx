@@ -25,7 +25,9 @@ export const SearchAndFilters: React.FC<SearchAndFiltersProps> = ({
     { value: 'metalloid', label: 'Metalloids' },
     { value: 'nonmetal', label: 'Nonmetals' },
     { value: 'halogen', label: 'Halogens' },
-    { value: 'noble gas', label: 'Noble Gases' }
+    { value: 'noble gas', label: 'Noble Gases' },
+    { value: 'lanthanide', label: 'Lanthanides' },
+    { value: 'actinide', label: 'Actinides' }
   ];
 
   return (
