@@ -1,6 +1,6 @@
 
 import React, { useRef, useMemo } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
+import { Canvas, useFrame, MeshProps } from '@react-three/fiber';
 import { OrbitControls, Text } from '@react-three/drei';
 import * as THREE from 'three';
 import { Element } from '../data/elements';
@@ -115,7 +115,6 @@ const AtomicModelScene: React.FC<{ element: Element }> = ({ element }) => {
         color="white"
         anchorX="center"
         anchorY="middle"
-        font="/fonts/helvetiker_regular.typeface.json"
       >
         {element.symbol}
       </Text>
