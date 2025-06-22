@@ -1,9 +1,10 @@
-
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { X, ExternalLink } from 'lucide-react';
 import { Element } from '../data/elements';
 import { AtomicModel3D } from './AtomicModel3D';
+import { useTheme } from './ThemeProvider';
+import { getElementColors } from '../utils/elementColors';
 
 interface ElementModalProps {
   element: Element;
@@ -11,6 +12,9 @@ interface ElementModalProps {
 }
 
 export const ElementModal: React.FC<ElementModalProps> = ({ element, onClose }) => {
+  const { theme } = useTheme();
+  const elementColor = getElementColors(element.category, theme);
+
   // Prevent background scrolling when modal is open
   useEffect(() => {
     document.body.style.overflow = 'hidden';
@@ -40,7 +44,7 @@ export const ElementModal: React.FC<ElementModalProps> = ({ element, onClose }) 
       
       {/* Modal */}
       <motion.div
-        className="relative w-full max-w-4xl bg-slate-900/95 backdrop-blur-lg rounded-2xl border border-white/20 overflow-hidden max-h-[90vh] overflow-y-auto"
+        className="relative w-full max-w-4xl bg-card/95 backdrop-blur-lg rounded-2xl border border-border overflow-hidden max-h-[90vh] overflow-y-auto"
         initial={{ opacity: 0, scale: 0.8, y: 50 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.8, y: 50 }}
@@ -48,22 +52,22 @@ export const ElementModal: React.FC<ElementModalProps> = ({ element, onClose }) 
       >
         {/* Header */}
         <div 
-          className="p-6 border-b border-white/10"
+          className="p-6 border-b border-border"
           style={{
-            background: `linear-gradient(135deg, ${element.color}20, ${element.color}40)`
+            background: `linear-gradient(135deg, ${elementColor}20, ${elementColor}40)`
           }}
         >
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <div 
-                className="w-16 h-16 rounded-xl flex items-center justify-center text-2xl font-bold text-white"
-                style={{ background: element.color }}
+                className="w-16 h-16 rounded-xl flex items-center justify-center text-2xl font-bold text-white font-orbitron"
+                style={{ background: elementColor }}
               >
                 {element.symbol}
               </div>
               <div>
-                <h2 className="text-3xl font-bold text-white">{element.name}</h2>
-                <p className="text-gray-300">Atomic Number {element.atomicNumber}</p>
+                <h2 className="text-3xl font-bold text-foreground font-orbitron">{element.name}</h2>
+                <p className="text-muted-foreground font-inter">Atomic Number {element.atomicNumber}</p>
               </div>
             </div>
             <div className="flex items-center gap-2">
@@ -72,7 +76,7 @@ export const ElementModal: React.FC<ElementModalProps> = ({ element, onClose }) 
                 href={wikipediaUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-white flex items-center gap-2"
+                className="p-2 rounded-full bg-accent hover:bg-accent/80 transition-colors text-foreground flex items-center gap-2 font-inter"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -83,7 +87,7 @@ export const ElementModal: React.FC<ElementModalProps> = ({ element, onClose }) 
               {/* Close Button */}
               <button
                 onClick={onClose}
-                className="p-2 rounded-full hover:bg-white/10 transition-colors text-white"
+                className="p-2 rounded-full hover:bg-accent transition-colors text-foreground"
               >
                 <X size={24} />
               </button>
@@ -94,12 +98,12 @@ export const ElementModal: React.FC<ElementModalProps> = ({ element, onClose }) 
         {/* Content */}
         <div className="grid md:grid-cols-2 gap-6 p-6">
           {/* 3D Model */}
-          <div className="h-80 bg-slate-800/50 rounded-xl border border-white/10 overflow-hidden">
+          <div className="h-80 bg-muted/50 rounded-xl border border-border overflow-hidden">
             <AtomicModel3D element={element} />
           </div>
 
           {/* Element Info */}
-          <div className="space-y-6">
+          <div className="space-y-6 font-inter">
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-slate-800/50 rounded-lg p-4 border border-white/10">
                 <div className="text-gray-400 text-sm mb-1">Atomic Weight</div>

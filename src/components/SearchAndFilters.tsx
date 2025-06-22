@@ -44,7 +44,7 @@ export const SearchAndFilters: React.FC<SearchAndFiltersProps> = ({
           placeholder="Search elements by name, symbol, or atomic number..."
           value={searchTerm}
           onChange={(e) => onSearchChange(e.target.value)}
-          className="w-full pl-10 pr-4 py-3 bg-card border border-border rounded-xl text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all"
+          className="w-full pl-10 pr-4 py-3 bg-card border border-border rounded-xl text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all font-inter"
         />
       </div>
 
@@ -54,7 +54,7 @@ export const SearchAndFilters: React.FC<SearchAndFiltersProps> = ({
         <select
           value={categoryFilter}
           onChange={(e) => onCategoryChange(e.target.value)}
-          className="pl-10 pr-8 py-3 bg-card border border-border rounded-xl text-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all appearance-none cursor-pointer min-w-[200px]"
+          className="pl-10 pr-8 py-3 bg-card border border-border rounded-xl text-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all appearance-none cursor-pointer min-w-[200px] font-inter"
         >
           {categories.map((category) => (
             <option key={category.value} value={category.value} className="bg-card text-foreground">

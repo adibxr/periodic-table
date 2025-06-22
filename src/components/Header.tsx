@@ -14,10 +14,10 @@ export const Header: React.FC = () => {
       className="flex justify-between items-center mb-8"
     >
       <div className="text-center flex-1">
-        <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+        <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent font-orbitron">
           Interactive Periodic Table
         </h1>
-        <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+        <p className="text-muted-foreground text-lg max-w-2xl mx-auto font-inter">
           Explore all 118 elements with interactive 3D models and detailed information
         </p>
       </div>
@@ -36,7 +36,7 @@ export const Header: React.FC = () => {
         </motion.a>
         
         <motion.a
-          href="https://instagram.com/adibxr"
+          href="https://instagram.com/adi.bxr"
           target="_blank"
           rel="noopener noreferrer"
           className="p-3 rounded-full bg-card border border-border hover:bg-accent transition-all"

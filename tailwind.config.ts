@@ -19,6 +19,10 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				'orbitron': ['Orbitron', 'sans-serif'],
+				'inter': ['Inter', 'sans-serif'],
+			},
 			gridTemplateColumns: {
 				'18': 'repeat(18, minmax(0, 1fr))',
 			},
