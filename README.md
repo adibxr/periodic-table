@@ -1,73 +1,32 @@
-# Welcome to your Lovable project
 
-## Project info
+# PERIODIC TABLE
 
-**URL**: https://lovable.dev/projects/532223cd-a91b-4365-a818-1de565f99c15
+This is basic tamplet Of Periodic Table of element the project include showing 3D model of each element and wikipedia page of each element.
 
-## How can I edit this code?
+## MAKERS
 
-There are several ways of editing your application.
+- [@ADITYA RAJ](https://www.github.com/adibxr)
 
-**Use Lovable**
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/532223cd-a91b-4365-a818-1de565f99c15) and start prompting.
+## CONTRIBUTING
 
-Changes made via Lovable will be committed automatically to this repo.
+Contributions are always welcome!
 
-**Use your preferred IDE**
+See `contributing.md` for ways to get started.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Please adhere to this project's `code of conduct`.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-Follow these steps:
+## HOSTING
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+To deploy this project run
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```bash
+https://chemistry.immortaladi.live/
 ```
 
-**Edit a file directly in GitHub**
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Support
 
-**Use GitHub Codespaces**
+For support, email ccidcop@gmail.com 
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/532223cd-a91b-4365-a818-1de565f99c15) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
